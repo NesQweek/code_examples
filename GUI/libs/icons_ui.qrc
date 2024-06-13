@@ -1,0 +1,20 @@
+<RCC>
+  <qresource prefix="arrows">
+    <file>icons/arrow_down.png</file>
+    <file>icons/arrow_up.png</file>
+    <file>icons/arrow-left.png</file>
+    <file>icons/arrow-right.png</file>
+  </qresource>
+  <qresource prefix="alerts">
+    <file>icons/data_alert.png</file>
+  </qresource>
+  <qresource prefix="table">
+    <file>icons/excel.png</file>
+  </qresource>
+  <qresource prefix="window">
+    <file>icons/close.png</file>
+    <file>icons/fullscreen.png</file>
+    <file>icons/halfscreen.png</file>
+    <file>icons/minimize.png</file>
+  </qresource>
+</RCC>
