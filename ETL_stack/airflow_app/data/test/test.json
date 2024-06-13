@@ -1,0 +1,15 @@
+{
+    "Loan_ID": "LP002106",
+    "Gender": "Male",
+    "Married": "No",
+    "Dependents": 2,
+    "Education": "Not Graduate",
+    "Self_Employed": "No",
+    "ApplicantIncome": 80102,
+    "CoapplicantIncome": 291.0,
+    "LoanAmount": 103.0,
+    "Loan_Amount_Term": 63.0,
+    "Credit_History": 1.0,
+    "Property_Area": "Semiurban",
+    "Loan_Status": "Y"
+}

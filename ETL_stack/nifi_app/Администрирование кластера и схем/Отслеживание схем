@@ -1,0 +1,1 @@
+1. Для отслеживания схем localhost:8081/subjects(/название value/versions/1/schema) и localhost:8002 с графическим интерфейсом (раскомментить в .yml schema-registry-ui и перезапустить compose up)

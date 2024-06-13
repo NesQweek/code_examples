@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Offset Explorer 3.0
+Exec="/home/vlad/nifi_module/practical_work/offsetexplorer3/offsetexplorer" %U
+Icon=/home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/offsetexplorer.png
+Categories=Application;
+StartupWMClass=install4j-com-offsetexplorer-ui-MainApp

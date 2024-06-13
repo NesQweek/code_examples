@@ -1,0 +1,30 @@
+<RCC>
+  <qresource prefix="background-image">
+    <file>icons/background.jpeg</file>
+  </qresource>
+  <qresource prefix="slide_menu">
+    <file>icons/right.png</file>
+    <file>icons/menu.png</file>
+  </qresource>
+  <qresource prefix="window">
+    <file>icons/minimize.png</file>
+    <file>icons/halfscreen.png</file>
+    <file>icons/fullscreen.png</file>
+    <file>icons/diagonal-arrow.png</file>
+    <file>icons/remove.png</file>
+  </qresource>
+  <qresource prefix="toolbox_icons">
+    <file>icons/arrow_down.png</file>
+    <file>icons/arrow_up.png</file>
+  </qresource>
+  <qresource prefix="app_icons">
+    <file>icons/schema_registry_ui.png</file>
+    <file>icons/tg.png</file>
+    <file>icons/github.png</file>
+    <file>icons/Grafana.png</file>
+    <file>icons/nifi.png</file>
+    <file>icons/offset_explorer.png</file>
+    <file>icons/schema_registry.png</file>
+    <file>icons/airflow.png</file>
+  </qresource>
+</RCC>

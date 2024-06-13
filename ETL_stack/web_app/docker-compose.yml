@@ -1,0 +1,28 @@
+services:
+  web-app:
+    container_name: service_container
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./django_service:/service
+    environment:
+      - DB_HOST=database # ссылка на другой сервис ниже
+      - DB_NAME=db
+      - DB_USER=user
+      - DB_PASS=password
+
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+    depends_on:
+      - database # не запускать web-app раньше чем database
+
+  database:
+    image: postgres:16.2-alpine3.19
+    container_name: postgres_container
+    environment:
+     - POSTGRES_DB=db
+     - POSTGRES_USER=user
+     - POSTGRES_PASSWORD=password

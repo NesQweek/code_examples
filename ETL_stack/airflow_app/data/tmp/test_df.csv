@@ -1,0 +1,2 @@
+ApplicantIncome,CoapplicantIncome,LoanAmount,Loan_Amount_Term,Credit_History,Gender,Married,Dependents_2,Dependents_0,Dependents_1,Dependents_2,Dependents_3+,Education,Self_Employed,Property_Area_Rural,Property_Area_Semiurban,Property_Area_Urban,Loan_Status
+283.02296726590936,17.05872210923198,10.14889156509222,63.0,1.0,True,False,True,False,False,False,False,False,False,False,True,False,True

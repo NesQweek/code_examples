@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fileLog>
+<createdFiles>
+<entry name="lib/slf4j-api.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/user/flatlaf.jar" shared="false" uninstallMode="2"/>
+<entry name=".install4j/offsetexplorer.png" shared="false" uninstallMode="2"/>
+<entry name="lib/jakarta.ws.rs-api.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/gson-2.3.1.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/installation.log" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/compile.cmd" shared="false" uninstallMode="0"/>
+<entry name="lib/kafka-schema-serializer.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/zkclient.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/libi4jinst.dylib" shared="false" uninstallMode="2"/>
+<entry name="lib/avro.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4jparams.conf" shared="false" uninstallMode="2"/>
+<entry name="lib/log4j-core.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/jackson-core.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/launcher1d1794eb.jar" shared="false" uninstallMode="2"/>
+<entry name=".install4j/i4j_extf_2_1y48far_18gg8kx.png" shared="false" uninstallMode="2"/>
+<entry name=".install4j/response.varfile" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4j_extf_1_1y48far.txt" shared="false" uninstallMode="2"/>
+<entry name="lib/jackson-annotations.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/launcher0.jar" shared="false" uninstallMode="2"/>
+<entry name=".install4j/autoUninstall.1" shared="false" uninstallMode="0"/>
+<entry name="lib/lz4.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/launcher2bfa42ba.jar" shared="false" uninstallMode="2"/>
+<entry name="lib/log4j-api.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/jackson-databind.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/ofjar.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/jgoodies-looks-2.5.3.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/MessagesDefault" shared="false" uninstallMode="2"/>
+<entry name="offsetexplorer.vmoptions" shared="false" uninstallMode="3"/>
+<entry name=".install4j/install.prop" shared="false" uninstallMode="0"/>
+<entry name="lib/jline.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/snappy.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/jersey-common.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/kafka-avro-serializer.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4j_extf_0_1y48far.utf8" shared="false" uninstallMode="2"/>
+<entry name=".install4j/user.jar" shared="false" uninstallMode="2"/>
+<entry name=".install4j/libi4jinst2.dylib" shared="false" uninstallMode="2"/>
+<entry name="lib/zookeeper.jar" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/src/com/offsetexplorer/external/ICustomMessageDecorator.java" shared="false" uninstallMode="0"/>
+<entry name="lib/msk.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/kafka-schema-registry-client.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/zstd.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4jempty.ttf" shared="false" uninstallMode="2"/>
+<entry name=".install4j/install4j_1nepjt4-offsetexplorer.desktop" shared="false" uninstallMode="2">
+<preUninstall admin="false" executable="xdg-desktop-menu">
+<argument>uninstall</argument>
+<argument>--mode</argument>
+<argument>user</argument>
+<argument>/home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/install4j_1nepjt4-offsetexplorer.desktop</argument>
+</preUninstall>
+</entry>
+<entry name="uninstall" shared="false" uninstallMode="0"/>
+<entry name=".install4j/uninstall.png" shared="false" uninstallMode="2"/>
+<entry name=".install4j/inst_jre.cfg" shared="false" uninstallMode="0"/>
+<entry name="lib/jgoodies-common-1.6.0.jar" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4jruntime.jar" shared="false" uninstallMode="2"/>
+<entry name=".install4j/i4j_extf_2_1y48far_18gg8kx_dark.png" shared="false" uninstallMode="2"/>
+<entry name="lib/glazedlists.jar" shared="false" uninstallMode="0"/>
+<entry name="lib/log4j-slf4j-impl.jar" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/readme.txt" shared="false" uninstallMode="0"/>
+<entry name="lib/jide-oss.jar" shared="false" uninstallMode="0"/>
+<entry name="Offset Explorer 3.0.desktop" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4j_extf_2_1y48far_18gg8kx@2x_dark.png" shared="false" uninstallMode="2"/>
+<entry name="offsetexplorer" shared="false" uninstallMode="0"/>
+<entry name=".install4j/stats.properties" shared="false" uninstallMode="2"/>
+<entry name="plugins/example/checksum/src/com/offsetexplorer/external/ChecksumDecorator.java" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/buildJar.cmd" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/src/com/offsetexplorer/external/ICustomMessageDecorator2.java" shared="false" uninstallMode="0"/>
+<entry name=".install4j/i4j_extf_2_1y48far_18gg8kx@2x.png" shared="false" uninstallMode="2"/>
+<entry name="lib/kafka-clients.jar" shared="false" uninstallMode="0"/>
+</createdFiles>
+<createdDirs>
+<entry name="plugins/example/checksum/src/com/offsetexplorer/external" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/src/com/offsetexplorer" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/src/com" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum/src" shared="false" uninstallMode="0"/>
+<entry name="plugins/example/checksum" shared="false" uninstallMode="0"/>
+<entry name="plugins/example" shared="false" uninstallMode="0"/>
+<entry name="plugins" shared="false" uninstallMode="0"/>
+<entry name="lib" shared="false" uninstallMode="0"/>
+<entry name=".install4j/user" shared="false" uninstallMode="0"/>
+<entry name=".install4j" shared="false" uninstallMode="0"/>
+<entry name="." shared="false" uninstallMode="0"/>
+</createdDirs>
+</fileLog>

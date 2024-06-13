@@ -1,0 +1,160 @@
+[2024-03-24T18:50:53.738+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:50:53.738+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:50:53.739+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:50:53.739+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:50:54.489+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:50:54.488+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 16, in <module>
+    from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-24T18:50:54.489+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:50:54.506+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.770 seconds
+[2024-03-24T18:51:24.601+0000] {processor.py:161} INFO - Started process (PID=101) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:51:24.602+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:51:24.603+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:51:24.603+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:51:24.783+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:51:24.782+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 16, in <module>
+    from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-24T18:51:24.784+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:51:24.796+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.197 seconds
+[2024-03-24T18:55:20.352+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:55:20.353+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:55:20.354+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:55:20.354+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:55:21.619+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:55:21.618+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T18:55:21.620+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:55:21.633+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 1.283 seconds
+[2024-03-24T18:55:52.156+0000] {processor.py:161} INFO - Started process (PID=122) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:55:52.157+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:55:52.158+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:55:52.158+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:55:52.988+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:55:52.987+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T18:55:52.988+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:55:53.003+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.849 seconds
+[2024-03-24T18:58:36.070+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:58:36.071+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:58:36.072+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:58:36.072+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:58:37.450+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:58:37.449+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T18:58:37.450+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:58:37.462+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 1.395 seconds
+[2024-03-24T18:59:07.764+0000] {processor.py:161} INFO - Started process (PID=122) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:59:07.765+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:59:07.766+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:59:07.766+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:59:08.418+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:59:08.417+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T18:59:08.418+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:59:08.430+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.669 seconds
+[2024-03-24T18:59:38.925+0000] {processor.py:161} INFO - Started process (PID=194) to work on /opt/airflow/dags/dag.py
+[2024-03-24T18:59:38.925+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T18:59:38.926+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:59:38.926+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T18:59:39.525+0000] {logging_mixin.py:188} INFO - [2024-03-24T18:59:39.524+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T18:59:39.525+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T18:59:39.545+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.623 seconds
+[2024-03-24T19:00:10.467+0000] {processor.py:161} INFO - Started process (PID=262) to work on /opt/airflow/dags/dag.py
+[2024-03-24T19:00:10.476+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T19:00:10.478+0000] {logging_mixin.py:188} INFO - [2024-03-24T19:00:10.477+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T19:00:11.120+0000] {logging_mixin.py:188} INFO - [2024-03-24T19:00:11.119+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T19:00:11.120+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T19:00:11.131+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.667 seconds
+[2024-03-24T19:14:45.754+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/dag.py
+[2024-03-24T19:14:45.755+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T19:14:45.756+0000] {logging_mixin.py:188} INFO - [2024-03-24T19:14:45.756+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T19:14:47.045+0000] {logging_mixin.py:188} INFO - [2024-03-24T19:14:47.045+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T19:14:47.046+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T19:14:47.057+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 1.305 seconds
+[2024-03-24T19:15:17.647+0000] {processor.py:161} INFO - Started process (PID=123) to work on /opt/airflow/dags/dag.py
+[2024-03-24T19:15:17.648+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag.py for tasks to queue
+[2024-03-24T19:15:17.649+0000] {logging_mixin.py:188} INFO - [2024-03-24T19:15:17.649+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/dag.py
+[2024-03-24T19:15:18.323+0000] {logging_mixin.py:188} INFO - [2024-03-24T19:15:18.322+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag.py", line 19, in <module>
+    from modules.run_ML_models import checker
+  File "/opt/airflow/dags/modules/run_ML_models.py", line 36, in <module>
+    from preprocessing_functions import drop_id, Custom_fillna_categories, Custom_fillna_numerical, \
+ModuleNotFoundError: No module named 'preprocessing_functions'
+[2024-03-24T19:15:18.323+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dag.py
+[2024-03-24T19:15:18.336+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag.py took 0.691 seconds

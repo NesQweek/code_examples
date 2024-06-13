@@ -1,0 +1,36 @@
+[2024-03-25T18:34:03.207+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_prediction.run_ML_models scheduled__2024-03-25T01:00:00+00:00 [queued]>
+[2024-03-25T18:34:03.212+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_prediction.run_ML_models scheduled__2024-03-25T01:00:00+00:00 [queued]>
+[2024-03-25T18:34:03.212+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-03-25T18:34:03.220+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): run_ML_models> on 2024-03-25 01:00:00+00:00
+[2024-03-25T18:34:03.228+0000] {standard_task_runner.py:60} INFO - Started process 389 to run task
+[2024-03-25T18:34:03.232+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'loan_prediction', 'run_ML_models', 'scheduled__2024-03-25T01:00:00+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp3wgrjfrz']
+[2024-03-25T18:34:03.235+0000] {standard_task_runner.py:88} INFO - Job 12: Subtask run_ML_models
+[2024-03-25T18:34:03.272+0000] {task_command.py:423} INFO - Running <TaskInstance: loan_prediction.run_ML_models scheduled__2024-03-25T01:00:00+00:00 [running]> on host af4c1478ae1f
+[2024-03-25T18:34:03.326+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='loan_prediction' AIRFLOW_CTX_TASK_ID='run_ML_models' AIRFLOW_CTX_EXECUTION_DATE='2024-03-25T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-25T01:00:00+00:00'
+[2024-03-25T18:34:03.327+0000] {logging_mixin.py:188} INFO - Преобразование данных...
+[2024-03-25T18:34:03.483+0000] {logging_mixin.py:188} INFO - Моделинг...
+[2024-03-25T18:34:03.484+0000] {logging_mixin.py:188} INFO - 	Логистическая регрессия...
+[2024-03-25T18:34:03.519+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:34:03.519+0000] {logging_mixin.py:188} INFO - 	K-ближайших соседей классификатор...
+[2024-03-25T18:34:03.817+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:34:03.826+0000] {logging_mixin.py:188} INFO - 	Метод опорных векторов...
+[2024-03-25T18:34:03.851+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:34:03.851+0000] {logging_mixin.py:188} INFO - 	Наивный Байес Гаусс классификатор...
+[2024-03-25T18:34:03.854+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:34:03.854+0000] {logging_mixin.py:188} INFO - 	Решающее дерево...
+[2024-03-25T18:34:03.888+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:34:03.888+0000] {logging_mixin.py:188} INFO - 	Случайный лес...
+[2024-03-25T18:34:24.313+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:34:24.313+0000] {logging_mixin.py:188} INFO - 	Градиентный бустинг...
+[2024-03-25T18:35:04.739+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:35:04.740+0000] {logging_mixin.py:188} INFO - Выбор лучшей модели...
+[2024-03-25T18:35:05.678+0000] {logging_mixin.py:188} INFO - Сохранение модели и метаданных...
+[2024-03-25T18:35:05.896+0000] {logging_mixin.py:188} INFO - 						Завершено
+[2024-03-25T18:35:05.897+0000] {logging_mixin.py:188} INFO - Средний прогноз метрики accuracy на тестовых данных по 7 ML моделям: 84.694
+[2024-03-25T18:35:05.897+0000] {run_ML_models.py:281} INFO - Средний прогноз метрики accuracy на тестовых данных по 7 ML моделям: 84.694
+[2024-03-25T18:35:05.897+0000] {logging_mixin.py:188} INFO - Модель RandomForestClassifier с самой большой точностью: 89.683
+[2024-03-25T18:35:05.897+0000] {run_ML_models.py:285} INFO - Модель RandomForestClassifier с самой большой точностью: 89.683
+[2024-03-25T18:35:05.918+0000] {logging_mixin.py:188} INFO - LP002106, 1.0
+[2024-03-25T18:35:05.918+0000] {run_ML_models.py:72} INFO - LP002106, 1.0
+[2024-03-25T18:35:05.919+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-03-25T18:35:05.928+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=loan_prediction, task_id=run_ML_models, execution_date=20240325T010000, start_date=20240325T183403, end_date=20240325T183505

@@ -1,0 +1,1 @@
+Запуск из консоли ./offsetexplorer

@@ -1,0 +1,10 @@
+
+1. Установил Offset Explorer (linux) (уже установлено, можно пропустить 1 шаг)
+     Скачать wget https://kafkatool.com/download3/offsetexplorer.sh -O offsetexplorer.sh
+     Сделать его исполняемым, например для общего пользования chmod ugo+x offsetexplorer_install.sh
+     Запустить ./offsetexplorer_install.sh
+     Установить в новую папку проекта /offsetexplorer3
+     
+2. Запустить Offset Explorer из папки offsetexplorer3 запустить ./offsetexplorer
+
+3. Запустить docker-compose up -d; установить подключение к кластеру в Offset Explorer

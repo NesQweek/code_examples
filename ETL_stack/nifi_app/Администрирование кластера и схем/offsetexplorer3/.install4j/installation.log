@@ -1,0 +1,217 @@
+[INFO] Logger started at 2024-02-25 09:29:44
+[INFO] Executable name: /home/vlad/nifi_module/practical_work/offsetexplorer.sh
+[INFO] install4j version: 10.0.6 (build 10097)
+[INFO] Properties: 
+-- listing properties --
+sun.desktop=gnome
+awt.toolkit=sun.awt.X11.XToolkit
+java.specification.version=11
+install4j.launcherId=346
+sun.cpu.isalist=
+sun.jnu.encoding=UTF-8
+java.class.path=i4jruntime.jar:launcher0.jar
+sun.awt.enableExtraMouseButtons=true
+java.vm.vendor=Oracle Corporation
+sun.arch.data.model=64
+install4j.exeDir=/home/vlad/nifi_module/practical_work/
+sun.font.fontmanager=sun.awt.X11FontManager
+java.vendor.url=https://openjdk.java.net/
+user.timezone=Europe/Moscow
+os.name=Linux
+java.vm.specification.version=11
+sun.java.launcher=SUN_STANDARD
+user.country=RU
+sun.boot.library.path=/usr/lib/jvm/java-11-openjdk/lib
+sun.java.command=install4j.Installer4239743859
+jdk.debug=release
+sun.cpu.endian=little
+user.home=/home/vlad
+user.language=ru
+jdk.http.auth.tunneling.disabledSchemes=
+java.specification.vendor=Oracle Corporation
+java.version.date=2024-01-16
+java.home=/usr/lib/jvm/java-11-openjdk
+file.separator=/
+java.vm.compressedOopsMode=Zero based
+line.separator=
+
+java.specification.name=Java Platform API Specification
+java.vm.specification.vendor=Oracle Corporation
+jdk.lang.Process.allowAmbiguousCommands=false
+java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
+exe4j.moduleName=/home/vlad/nifi_module/practical_work...
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.runtime.version=11.0.22+7
+user.name=vlad
+path.separator=:
+java.net.useSystemProxies=true
+os.version=6.7.4-2-MANJARO
+java.runtime.name=OpenJDK Runtime Environment
+file.encoding=UTF-8
+java.vm.name=OpenJDK 64-Bit Server VM
+install4j.jvmDir=/usr/lib/jvm/java-11-openjdk
+install4j.cwd=/home/vlad/nifi_module/practical_work
+install4j.appDir=/home/vlad/nifi_module/practical_work/
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=/tmp
+java.version=11.0.22
+user.dir=/home/vlad/nifi_module/practical_work...
+os.arch=amd64
+java.vm.specification.name=Java Virtual Machine Specification
+exe4j.totalDataLength=38710338
+java.awt.printerjob=sun.print.PSPrinterJob
+sun.os.patch.level=unknown
+java.library.path=/home/vlad/nifi_module/practical_work...
+java.vm.info=mixed mode
+java.vendor=Oracle Corporation
+java.vm.version=11.0.22+7
+java.specification.maintenance.version=2
+sun.io.unicode.encoding=UnicodeLittle
+java.class.version=55.0
+install4j.swt=false
+[INFO] Variable changed: sys.resolveUserSpecificInstallationDir=true[class java.lang.String]
+[INFO] com.install4j.runtime.beans.actions.misc.RequestPrivilegesAction [ID 13]: Execute action
+       Property linuxPrivilegeRequirement: None
+       Property failIfNotObtainedLinux: false
+       Property failIfNotObtainedMac: true
+       Property failIfNotObtainedWin: true
+       Property failIfNotRootUnix: false
+       Property obtainIfAdminMac: false
+       Property obtainIfAdminWin: true
+       Property obtainIfNormalMac: false
+       Property obtainIfNormalWin: false
+       Property rollbackSupported: false
+       Property updateInstallationDirectory: true
+       Execute action successful after 2 ms
+[INFO] com.install4j.runtime.beans.screens.StartupScreen [ID 1]: command: move 1 screens, executing actions, checking condition
+[INFO] com.install4j.runtime.beans.screens.WelcomeScreen [ID 2]: Show screen
+[INFO] com.install4j.runtime.beans.screens.WelcomeScreen [ID 2]: command: move 1 screens, executing actions, checking condition
+[INFO] com.install4j.runtime.beans.screens.LicenseScreen [ID 120]: Show screen
+[INFO] com.install4j.runtime.beans.screens.LicenseScreen [ID 120]: command: move 1 screens, executing actions, checking condition
+[INFO] com.install4j.runtime.beans.screens.InstallationDirectoryScreen [ID 4]: Show screen
+       Variable changed: sys.installationDir=/home/vlad/nifi_module/practical_work/offsetexplorer3[class java.lang.String]
+       checking writable with maximum
+[INFO] com.install4j.runtime.beans.actions.misc.LoadResponseFileAction [ID 5]: Execute action
+       Property excludedVariables: [sys.installationDir]
+       Property file: null
+       Property overwriteStrategy: Do not overwrite command line
+       Property registerForResponseFile: true
+       Property rollbackSupported: false
+       Response file /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/response.varfile does not exist
+       Execute action successful after 1 ms
+[INFO] com.install4j.runtime.beans.screens.InstallationDirectoryScreen [ID 4]: command: move 1 screens, executing actions, checking condition
+[INFO] com.install4j.runtime.beans.screens.StandardProgramGroupScreen [ID 7]: Show screen
+       Variable changed: sys.symlinkDir=/usr/local/bin[class java.lang.String]
+       Variable changed: sys.programGroupDisabled=false[class java.lang.Boolean]
+[INFO] com.install4j.runtime.beans.screens.StandardProgramGroupScreen [ID 7]: command: move 1 screens, executing actions, checking condition
+[INFO] com.install4j.runtime.beans.screens.InstallationScreen [ID 8]: Show screen
+[INFO] com.install4j.runtime.beans.actions.InstallFilesAction [ID 9]: Execute action
+       Property directoryResolverScript: null
+       Property fileFilterScript: null
+       Property sizeCalculatorScript: null
+       Property acceptAllCertificates: false
+       Property checkFreeSpace: true
+       Property delay: false
+       Property installRuntime: true
+       Property rollbackSupported: true
+       Property saveDownloadedFiles: false
+       Property showFileNames: true
+       Property triggerReboot: true
+       Property validateApplicationId: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/offsetexplorer.png; size: 42340 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 18 15:44:02 MSK 2024, mode: 644, overwriteMode: Always, shared: false, uninstallMode: Always, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/uninstall.png; size: 6648 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/avro.jar; size: 587956 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 18 15:44:02 MSK 2024, mode: 644, overwriteMode: Always, shared: false, uninstallMode: If created, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/glazedlists.jar; size: 838837 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/gson-2.3.1.jar; size: 210856 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jackson-annotations.jar; size: 68080 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jackson-core.jar; size: 349331 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jackson-databind.jar; size: 1405163 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jakarta.ws.rs-api.jar; size: 140376 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jersey-common.jar; size: 1168344 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jgoodies-common-1.6.0.jar; size: 31348 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jgoodies-looks-2.5.3.jar; size: 402425 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jide-oss.jar; size: 1914161 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/jline.jar; size: 87325 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/kafka-avro-serializer.jar; size: 28194 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/kafka-clients.jar; size: 5246932 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/kafka-schema-registry-client.jar; size: 115318 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/kafka-schema-serializer.jar; size: 29534 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/log4j-api.jar; size: 317566 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/log4j-core.jar; size: 1864386 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/log4j-slf4j-impl.jar; size: 25040 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/lz4.jar; size: 682804 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/msk.jar; size: 14235775 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/ofjar.jar; size: 803791 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/slf4j-api.jar; size: 41203 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/snappy.jar; size: 1773713 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/zkclient.jar; size: 74626 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/zookeeper.jar; size: 906708 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/lib/zstd.jar; size: 5982371 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/offsetexplorer; size: 15822 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 18 15:44:02 MSK 2024, mode: 755, overwriteMode: If newer otherwise ask, shared: false, uninstallMode: If created, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/offsetexplorer.vmoptions; size: 243 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 18 15:44:02 MSK 2024, mode: 644, overwriteMode: Never, shared: false, uninstallMode: If created, but not for update, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/plugins/example/checksum/buildJar.cmd; size: 42 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 18 15:44:02 MSK 2024, mode: 644, overwriteMode: Always ask except for update, shared: false, uninstallMode: If created, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/plugins/example/checksum/compile.cmd; size: 115 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/plugins/example/checksum/readme.txt; size: 2383 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/plugins/example/checksum/src/com/offsetexplorer/external/ChecksumDecorator.java; size: 725 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/plugins/example/checksum/src/com/offsetexplorer/external/ICustomMessageDecorator.java; size: 355 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/plugins/example/checksum/src/com/offsetexplorer/external/ICustomMessageDecorator2.java; size: 332 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/uninstall; size: 16535 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 18 15:44:02 MSK 2024, mode: 700, overwriteMode: If newer otherwise ask, shared: false, uninstallMode: If created, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/inst_jre.cfg; size: 29 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 25 09:30:16 MSK 2024, mode: 644, overwriteMode: Always, shared: false, uninstallMode: If created, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4jruntime.jar; size: 2097375 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 25 09:30:16 MSK 2024, mode: 644, overwriteMode: Always, shared: false, uninstallMode: Always, delayIfNecessary: false]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/MessagesDefault; size: 34826 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4jparams.conf; size: 54086 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/stats.properties; size: 464 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4jempty.ttf; size: 1004 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/user.jar; size: 8390 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/launcher1d1794eb.jar; size: 829 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/launcher0.jar; size: 725 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/launcher2bfa42ba.jar; size: 767 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/user/flatlaf.jar; size: 758100 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4j_extf_0_1y48far.utf8; size: 34826 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4j_extf_2_1y48far_18gg8kx@2x_dark.png; size: 15837 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4j_extf_2_1y48far_18gg8kx_dark.png; size: 8891 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4j_extf_2_1y48far_18gg8kx@2x.png; size: 15419 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/libi4jinst.dylib; size: 237728 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4j_extf_1_1y48far.txt; size: 6504 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/i4j_extf_2_1y48far_18gg8kx.png; size: 9202 bytes; exists: false
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/libi4jinst2.dylib; size: 120688 bytes; exists: false
+       Execute action successful after 266 ms
+[INFO] com.install4j.runtime.beans.actions.desktop.CreateProgramGroupAction [ID 10]: Execute action
+       Property categories: Application
+       Property linkDirectory: /usr/local/bin
+       Property programGroupEntryConfigs: []
+       Property programGroupName: 
+       Property uninstallerMenuName: Offset Explorer 3 Uninstaller
+       Property addDefaultLauncherLinks: true
+       Property addUninstaller: true
+       Property allUsers: true
+       Property failForSymlinksNotCreated: false
+       Property rollbackSupported: true
+       Property unixMenuEntries: true
+       Property unixSymlinks: true
+       Variable changed: sys.programGroupName=Offset Explorer 3[class java.lang.String]
+       Install file: /home/vlad/nifi_module/practical_work/offsetexplorer3/.install4j/install4j_1nepjt4-offsetexplorer.desktop; size: 329 bytes; exists: false
+       File options set to: [fileTime: Sun Feb 25 09:30:16 MSK 2024, mode: 755, overwriteMode: Always, shared: false, uninstallMode: Always, delayIfNecessary: false]
+[ERROR] com.install4j.runtime.beans.actions.desktop.CreateProgramGroupAction [ID 10]: could not create symbolic link: /usr/local/bin/offsetexplorer
+[INFO] com.install4j.runtime.beans.actions.desktop.CreateProgramGroupAction [ID 10]: Execute action successful after 511 ms
+[INFO] com.install4j.runtime.beans.actions.desktop.RegisterAddRemoveAction [ID 11]: Execute action
+       Property icon: null
+       Property iconSource: Installer icon
+       Property itemName: Offset Explorer 3 3.0
+       Property persistentProperties: {}
+       Property rollbackSupported: true
+       Execute action successful after 1 ms
+[INFO] com.install4j.runtime.beans.screens.InstallationScreen [ID 8]: Rollback barrier reached
+       command: move 1 screens, executing actions, checking condition
+[INFO] com.install4j.runtime.beans.screens.FinishedScreen [ID 12]: Show screen
+[INFO] com.install4j.runtime.beans.screens.FinishedScreen [ID 12]: command: finish
+       cleaning up
+       Finished at 2024-02-25 09:30:18

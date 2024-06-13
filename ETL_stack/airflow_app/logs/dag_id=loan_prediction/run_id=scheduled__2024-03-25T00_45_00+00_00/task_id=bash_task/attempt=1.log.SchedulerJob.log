@@ -1,0 +1,1 @@
+[2024-03-25T18:34:01.114+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: loan_prediction.bash_task scheduled__2024-03-25T00:45:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

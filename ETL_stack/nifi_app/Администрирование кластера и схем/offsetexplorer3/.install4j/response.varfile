@@ -1,0 +1,6 @@
+# install4j response file for Offset Explorer 3 3.0
+sys.adminRights$Boolean=false
+sys.installationDir=/home/vlad/nifi_module/practical_work/offsetexplorer3
+sys.languageId=en
+sys.programGroupDisabled$Boolean=false
+sys.symlinkDir=/usr/local/bin
