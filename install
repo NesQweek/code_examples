@@ -1,18 +1,6 @@
 
 							.       На мастер машине       .
 							
-Проблема: master нода находится на виртуальной машине VirtualBox, использует с основной системой общий внутренний ip, могут быть конфликты
-Решение: в меню VirtualBox выбрать ВМ -> Настроить -> Сеть -> Адаптер -> Тип подключения: Сетевой мост, выбрать wifi адаптер основной системы -> Дополнительно: подключить кабель
-В меню роутера должен добавиться новый внутренний ip адрес, который будет отображаться в ipconfig/ip address
-
-Проблема: удаленные серверы не видят master ноду, т.к. она находится в локальной wifi сети 
-Решение: Нужно найти внутренний ip ноды (в роутере, либо ipconfig на windows / ip address на linux)
-Затем сделать port forwarding в настройках роутера на порт 22 для SSH подключений
-
-Возможно для успешного проброса порта потребуется статический "белый" ip (уточнять у провайдера)
-
-							    
-
 
 	       configure SSH config
 _______---_----------------------------_---_______
@@ -21,13 +9,13 @@ _______---_----------------------------_---_______
 
 >> sudo mkdir ~/.ssh/main
 >> sudo chmod 777 ~/.ssh/main
->> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-main-key									(vm-main node)
+>> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-main-key											(vm-main node)
     > somekeyword (or press Enter to skip)
     > somekeyword (or press Enter to skip)
     
->> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-yandex-key								(vm-main node)
+>> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-yandex-key											(vm-main node)
     ...
->> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-sber-key									(vm-main node)
+>> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-sber-key											(vm-main node)
     ...
 				
 временно установить 777 права для упрощения
@@ -38,7 +26,7 @@ sudo chmod 777 ~/.ssh/main/vm-sber-key
 
 Для того, чтобы можно было подключаться по алиасам (ssh master) без явного указания пути к ключам, нужно настроить ssh config
 
->> sudo nano ~/.ssh/config												                    (vm-main node)
+>> sudo nano ~/.ssh/config												                (vm-main node)
 
 # Ключи для основного пользователя
 Host vm-main
@@ -63,25 +51,25 @@ Host vm-sber
 
 |------      ----------     -------|
 |------  -----------------  -------|
-|             slave node	         |
+|             slave node	   |
 |----------------------------------|
-|HostName	vm-yandex                |
-|2 CPU 4 RAM			                 |
-|Ubuntu 22.04			                 |
-|public ip	180.140.170.150        |
+|HostName	vm-yandex          |
+|2 CPU 4 RAM	                   |
+|Ubuntu 22.04	                   |
+|public ip	180.140.170.150    |
 |----------------------------------|
-|             slave node		       |
+|             slave node           |
 |----------------------------------|
-|HostName	vm-sber                  |
-|2 CPU 4 RAM		                   |
-|Ubuntu 22.04		                   |
-|public ip	170.130.160.140        |
+|HostName	vm-sber            |
+|2 CPU 4 RAM                       |
+|Ubuntu 22.04	                   |
+|public ip	170.130.160.140    |
 |----------------------------------|
-|         master/slave node	       |
+|         master/slave node        |
 |----------------------------------|
-|HostName 	vm-main		             |
-|4 CPU 8 RAM			                 |
-|public ip	192.168.0.105 	       |
+|HostName 	vm-main            |
+|4 CPU 8 RAM                       |
+|public ip	192.168.0.105      |
 |----------------------------------|
 |------      ----------     -------|
 
@@ -90,12 +78,24 @@ Host vm-sber
 затем для выхода из соединения >> exit
 ЕСЛИ ОШИБКА !!!! ssh: connect to host vm-yandex port 22: Connection timed out !!!!
 Выполнить команду >> sudo service ssh start
-Если не помогло, выполнить проброс порта (описано в самом начале)
+
+Другие возможные проблемы:
+Проблема: master нода находится на виртуальной машине VirtualBox, использует с основной системой общий внутренний ip, могут быть конфликты
+Решение: в меню VirtualBox выбрать ВМ -> Настроить -> Сеть -> Адаптер -> Тип подключения: Сетевой мост, выбрать wifi адаптер основной системы -> Дополнительно: подключить кабель
+В меню роутера должен добавиться новый внутренний ip адрес, который будет отображаться в ipconfig/ip address
+
+Проблема: удаленные серверы не видят master ноду, т.к. она находится в локальной wifi сети 
+Решение: Нужно найти внутренний ip ноды (в роутере, либо ipconfig на windows / ip address на linux)
+Затем сделать port forwarding в настройках роутера на порт 22 для SSH подключений
+
+Возможно для успешного проброса порта потребуется статический "белый" ip (уточнять у провайдера)
+
+
+
 
 Теперь эти public ip адреса нужно вписать в hosts (вариант без использования DNS), выполнить необходимые установки и тд.
 Для удобства сделать в терминале 3 вкладки для работы в соответствующей ноде: vm-main, vm-yandex, vm-sber
 Дальнейшие действия выполняются на каждой ноде
-
 
 				.       На всех машинах       .
 							 
@@ -148,11 +148,11 @@ sudo chmod 600 /home/hadoop/.ssh/*              									                       
 >> su - hadoop														                                                                    (connected node -> hadoop user)
     > hadoop
     
->> ls -ld /home/hadoop/.ssh должен вывести 			drwx———  hadoop hadoop (т.е. права доступа 700)		            (connected node | hadoop user)
->> ls -ld /home/hadoop должен вывести 				drwx———  hadoop hadoop (т.е. права доступа 700)		              (connected node | hadoop user)
+>> ls -ld /home/hadoop/.ssh должен вывести 			drwx———  hadoop hadoop (т.е. права доступа 700)		        (connected node | hadoop user)
+>> ls -ld /home/hadoop должен вывести 				drwx———  hadoop hadoop (т.е. права доступа 700)		        (connected node | hadoop user)
 
 (!) кроме vm-main ноды (!)
->> ls -l /home/hadoop/.ssh/authorized_keys должен вывести 	-rw———-  hadoop hadoop (т.е. права доступа 600)		(connected node | hadoop user)
+>> ls -l /home/hadoop/.ssh/authorized_keys должен вывести 	-rw———-  hadoop hadoop (т.е. права доступа 600)		        (connected node | hadoop user)
 
 
 
@@ -165,25 +165,25 @@ sudo chmod 600 /home/hadoop/.ssh/*              									                       
 
 
 В случае Permission denied (publickey) зайти через обычную учетку (~) на сервер и проверить причину ошибки в логе
->> tail -n 50 /var/log/auth.log												(connected node)
+>> tail -n 50 /var/log/auth.log													(connected node)
 
 
      	          Install JDK
 _______---_----------------------------_---_______
 
->> cd /															(connected node)
->> sudo wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb					                                (connected node)
->> sudo apt install ./jdk-21_linux-x64_bin.deb										(connected node)
+>> cd /																(connected node)
+>> sudo wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb						(connected node)
+>> sudo apt install ./jdk-21_linux-x64_bin.deb											(connected node)
 >> java --version
 
 
      	    Install & configure Hadoop
 _______---_----------------------------_---_______
 
->> cd /															(connected node)
->> sudo wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz					                            (connected node)
->> sudo mkdir /usr/local/hadoop												(connected node)
->> sudo tar -zxvf hadoop-*.tar.gz -C /usr/local/hadoop --strip-components 1						                                    (connected node)
+>> cd /																(connected node)
+>> sudo wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz					        (connected node)
+>> sudo mkdir /usr/local/hadoop													(connected node)
+>> sudo tar -zxvf hadoop-*.tar.gz -C /usr/local/hadoop --strip-components 1						        (connected node)
 
 >> sudo chown -R hadoop:hadoop /usr/local/hadoop									                                                        (connected node)
 
