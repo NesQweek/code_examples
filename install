@@ -1,0 +1,402 @@
+
+							.       На мастер машине       .
+							
+Проблема: master нода находится на виртуальной машине VirtualBox, использует с основной системой общий внутренний ip, могут быть конфликты
+Решение: в меню VirtualBox выбрать ВМ -> Настроить -> Сеть -> Адаптер -> Тип подключения: Сетевой мост, выбрать wifi адаптер основной системы -> Дополнительно: подключить кабель
+В меню роутера должен добавиться новый внутренний ip адрес, который будет отображаться в ipconfig/ip address
+
+Проблема: удаленные серверы не видят master ноду, т.к. она находится в локальной wifi сети 
+Решение: Нужно найти внутренний ip ноды (в роутере, либо ipconfig на windows / ip address на linux)
+Затем сделать port forwarding в настройках роутера на порт 22 для SSH подключений
+
+Возможно для успешного проброса порта потребуется статический "белый" ip (уточнять у провайдера)
+
+							    
+
+
+	       configure SSH config
+_______---_----------------------------_---_______
+
+Сгенерировать ключи для основного пользователя (для подключения)
+
+>> sudo mkdir ~/.ssh/main
+>> sudo chmod 777 ~/.ssh/main
+>> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-main-key									(vm-main node)
+    > somekeyword (or press Enter to skip)
+    > somekeyword (or press Enter to skip)
+    
+>> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-yandex-key								(vm-main node)
+    ...
+>> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-sber-key									(vm-main node)
+    ...
+				
+временно установить 777 права для упрощения
+>> sudo chmod 777 ~/.ssh/main/vm-main-key && \
+sudo chmod 777 ~/.ssh/main/vm-yandex-key && \
+sudo chmod 777 ~/.ssh/main/vm-sber-key
+
+
+Для того, чтобы можно было подключаться по алиасам (ssh master) без явного указания пути к ключам, нужно настроить ssh config
+
+>> sudo nano ~/.ssh/config												                    (vm-main node)
+
+# Ключи для основного пользователя
+Host vm-main
+    HostName vm-main
+    IdentityFile ~/.ssh/main/vm-main-key
+    User kali
+    # kali вывод команды whoami
+Host vm-yandex
+    HostName vm-yandex
+    IdentityFile ~/.ssh/main/vm-yandex-key
+    User login-yandex
+Host vm-sber
+    HostName vm-sber
+    IdentityFile ~/.ssh/main/vm-sber-key
+    User login-sber
+
+
+Теперь нужно создать остальные ВМ и скопировать их public ip
+При создании удаленных ВМ использовать соответствующие .pub ключи из ~/.ssh/main
+
+							.       создание ВМ       .
+
+|------      ----------     -------|
+|------  -----------------  -------|
+|             slave node	         |
+|----------------------------------|
+|HostName	vm-yandex                |
+|2 CPU 4 RAM			                 |
+|Ubuntu 22.04			                 |
+|public ip	180.140.170.150        |
+|----------------------------------|
+|             slave node		       |
+|----------------------------------|
+|HostName	vm-sber                  |
+|2 CPU 4 RAM		                   |
+|Ubuntu 22.04		                   |
+|public ip	170.130.160.140        |
+|----------------------------------|
+|         master/slave node	       |
+|----------------------------------|
+|HostName 	vm-main		             |
+|4 CPU 8 RAM			                 |
+|public ip	192.168.0.105 	       |
+|----------------------------------|
+|------      ----------     -------|
+
+
+Проверить подключение к всем узлам >> ssh vm-main (для других соответствующий алиас)
+затем для выхода из соединения >> exit
+ЕСЛИ ОШИБКА !!!! ssh: connect to host vm-yandex port 22: Connection timed out !!!!
+Выполнить команду >> sudo service ssh start
+Если не помогло, выполнить проброс порта (описано в самом начале)
+
+Теперь эти public ip адреса нужно вписать в hosts (вариант без использования DNS), выполнить необходимые установки и тд.
+Для удобства сделать в терминале 3 вкладки для работы в соответствующей ноде: vm-main, vm-yandex, vm-sber
+Дальнейшие действия выполняются на каждой ноде
+
+
+				.       На всех машинах       .
+							 
+		            configure hosts
+_______---_----------------------------_---_______
+
+# подключиться к ноде
+>> ssh (алиас vm-yandex или другой)     
+
+>> sudo nano /etc/hosts
+
+Добавить адреса в конец файла
+Внутренний (приватный) ip для текущей ноды, внешние (публичные) ip для остальных, пример:
+
+# 127.0.0.1		localhost
+. . .
+
+192.168.0.105           vm-main
+180.140.170.150         vm-yandex
+170.130.160.140         vm-sber
+
+	 	    
+192.168.0.105 это внутренний ip (через ip address)
+
+     	     configure hadoop users
+_______---_----------------------------_---_______
+
+
+Создать пользователя hadoop и задать ему пароль hadoop
+>> sudo useradd hadoop -m												                                                              (connected node)
+>> sudo passwd hadoop													                                                                (connected node)
+  > hadoop
+  > hadoop
+    
+# создать папки с доступом для редактирования
+                                (!) кроме vm-main ноды (!)
+>> cd /home														                                                                        (connected node)
+>> sudo mkdir hadoop/.ssh												                                                              (connected node)
+>> sudo touch hadoop/.ssh/authorized_keys									                                        	          (connected node)
+				
+				(!) кроме vm-main ноды (!)
+>> sudo chmod 700 /home/hadoop && \
+sudo chmod 700 /home/hadoop/.ssh && \
+sudo chmod 600 /home/hadoop/.ssh/*              									                                            (connected node)
+
+>> sudo chown -R hadoop:hadoop /home/hadoop										                                                (connected node)
+
+Проверка:
+войти под пользователем hadoop 
+>> su - hadoop														                                                                    (connected node -> hadoop user)
+    > hadoop
+    
+>> ls -ld /home/hadoop/.ssh должен вывести 			drwx———  hadoop hadoop (т.е. права доступа 700)		            (connected node | hadoop user)
+>> ls -ld /home/hadoop должен вывести 				drwx———  hadoop hadoop (т.е. права доступа 700)		              (connected node | hadoop user)
+
+(!) кроме vm-main ноды (!)
+>> ls -l /home/hadoop/.ssh/authorized_keys должен вывести 	-rw———-  hadoop hadoop (т.е. права доступа 600)		(connected node | hadoop user)
+
+
+
+создать на каждом сервере файл /home/hadoop/.ssh/authorized_keys и заполнить его 3 соответствующими публичными ключами  
+содержимое /home/hadoop/.ssh/nodes/vm-main-key.pub, /home/hadoop/.ssh/nodes/vm-sber-key.pub, /home/hadoop/.ssh/nodes/vm-yandex-key.pub 
+
+
+Проверить подключение  к hadoop пользователю на каждой ноде
+ >> ssh vm-yandex-hadoop (vm-sber-hadoop...)										                                                          (vm-main node | hadoop user)
+
+
+В случае Permission denied (publickey) зайти через обычную учетку (~) на сервер и проверить причину ошибки в логе
+>> tail -n 50 /var/log/auth.log												(connected node)
+
+
+     	          Install JDK
+_______---_----------------------------_---_______
+
+>> cd /															(connected node)
+>> sudo wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb					                                (connected node)
+>> sudo apt install ./jdk-21_linux-x64_bin.deb										(connected node)
+>> java --version
+
+
+     	    Install & configure Hadoop
+_______---_----------------------------_---_______
+
+>> cd /															(connected node)
+>> sudo wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz					                            (connected node)
+>> sudo mkdir /usr/local/hadoop												(connected node)
+>> sudo tar -zxvf hadoop-*.tar.gz -C /usr/local/hadoop --strip-components 1						                                    (connected node)
+
+>> sudo chown -R hadoop:hadoop /usr/local/hadoop									                                                        (connected node)
+
+>> sudo nano /etc/profile.d/hadoop.sh											                                                                (connected node)
+
+export HADOOP_HOME=/usr/local/hadoop
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$HADOOP_HOME/lib/native"
+export YARN_HOME=$HADOOP_HOME
+export PATH="$PATH:${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin"
+
+>> sudo nano /usr/local/hadoop/etc/hadoop/hadoop-env.sh									                                                   (connected node)
+Найти строку # export JAVA_HOME= и заменить на export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
+
+Для проверки зайти под пользователем hadoop:
+>> su - hadoop														                                                                                  (connected node)
+    > hadoop
+    
+>> env | grep -i -E "hadoop|yarn"											                                                                      (connected node | hadoop user)
+
+Должен быть вывод:
+MAIL=/var/mail/hadoop
+USER=hadoop
+HADOOP_COMMON_HOME=/usr/local/hadoop
+HOME=/home/hadoop
+HADOOP_COMMON_LIB_NATIVE_DIR=/usr/local/hadoop/lib/native
+LOGNAME=hadoop
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/hadoop/bin:/usr/local/hadoop/sbin
+YARN_HOME=/usr/local/hadoop
+HADOOP_MAPRED_HOME=/usr/local/hadoop
+HADOOP_HDFS_HOME=/usr/local/hadoop
+HADOOP_HOME=/usr/local/hadoop
+
+>> hadoop version													                                                                                  (connected node | hadoop user)
+
+Должен быть вывод:
+Hadoop 3.4.0
+Source code repository git@github.com:apache/hadoop.git -r bd8b77f398f626bb7791783192ee7a5dfaeec760
+Compiled by root on 2024-03-04T06:35Z
+Compiled on platform linux-x86_64
+Compiled with protoc 3.21.12
+From source with checksum f7fe694a3613358b38812ae9c31114e
+This command was run using /usr/local/hadoop/share/hadoop/common/hadoop-common-3.4.0.jar
+
+
+     		   set configs
+_______---_----------------------------_---_______
+
+>> nano /usr/local/hadoop/etc/hadoop/core-site.xml									                                                        (connected node | hadoop user)
+
+<!-- обязательно -->
+
+<configuration>
+   <property>
+      <name>fs.default.name</name>
+      <value>hdfs://vm-main:9000</value>
+   </property>
+</configuration>
+
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 
+
+>> nano /usr/local/hadoop/etc/hadoop/hdfs-site.xml									                                                        (connected node | hadoop user)
+
+<!-- Put site-specific property overrides in this file. -->
+
+<!-- обязательно -->
+
+<configuration>
+   <property>  
+      <name>dfs.replication</name>
+      <value>3</value>
+   </property>
+   <property> 
+      <name>dfs.namenode.name.dir</name>
+      <value>file:///hadoop/hdfs/namenode</value>
+   </property>
+   <property> 
+      <name>dfs.datanode.data.dir</name>
+      <value>file:///hadoop/hdfs/datanode</value>
+   </property>
+
+
+  <!-- необязательно -->
+
+
+  <!-- Настройки NameNode -->
+   <property> 
+      <description> по умолчанию 9870 (для веб-интерфейса) </description>
+      <name>dfs.namenode.http-address</name>
+      <value>vm-main-hadoop:9870</value>
+   </property>
+   <property>
+      <description> по умолчанию 8020 (для RPC-соединений) </description>
+      <name>dfs.namenode.rpc-address</name>
+      <value>vm-main-hadoop:8020</value>
+   </property>
+
+  <!-- Настройки DataNode -->
+   <property> 
+      <description> по умолчанию 9866 (для связи с DataNode) </description>
+      <name>dfs.datanode.address</name>
+      <value>0.0.0.0:9866</value>
+   </property>
+   <property> 
+      <description> по умолчанию 9864 (для веб-интерфейса DataNode) </description>
+      <name>dfs.datanode.http.address</name>
+      <value>0.0.0.0:9864</value>
+   </property>  
+</configuration>
+
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 
+
+>> nano /usr/local/hadoop/etc/hadoop/mapred-site.xml									                                                    (connected node | hadoop user)
+
+<!-- Put site-specific property overrides in this file. -->
+
+<!-- обязательно -->
+
+<configuration>
+   <property>
+      <name>mapreduce.framework.name</name>
+      <value>yarn</value>
+   </property>
+</configuration>
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 
+
+>> nano /usr/local/hadoop/etc/hadoop/yarn-site.xml									                                                      (connected node | hadoop user)
+
+<!-- обязательно -->
+
+<configuration>
+
+<!-- Site specific YARN configuration properties -->
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  
+  <!-- необязательно -->
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.hadoop.mapred.ShuffleHandler</value>
+  </property>
+  <property>
+    <description>The hostname of the RM.</description>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>vm-main-hadoop</value>    
+  </property>
+  <property>
+    <description>The address of the applications manager interface in the RM.</description>
+    <name>yarn.resourcemanager.address</name>
+    <value>vm-main-hadoop:8032</value>    
+  </property>
+</configuration>
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 
+
+ctrl + D (out hadoop user)
+
+>> sudo mkdir -p /hadoop/hdfs/{namenode,datanode}									                                                                      (connected node)
+>> sudo chown -R hadoop:hadoop /hadoop											                                                                            (connected node)
+
+>> sudo nano /usr/local/hadoop/etc/hadoop/workers									                                                                      (connected node)
+
+vm-main
+vm-yandex
+vm-sber
+
+
+
+							 .       Серверы настроены       .
+							 .        Запуск кластера        .
+
+
+>> su - hadoop														(vm-main node -> hadoop user)
+    > hadoop
+
+Создаем файловую систему:
+Нужно выполнить только 1 раз
+>> /usr/local/hadoop/bin/hdfs namenode -format										                                                                      (vm-main node | hadoop user)
+
+Для запуска кластера выполняем следующие команды:
+
+# >> /usr/local/hadoop/sbin/start-dfs.sh
+
+>> hadoop namenode # (on vm-main)
+>> hadoop datanode # (all nodes)
+>> /usr/local/hadoop/sbin/start-yarn.sh											                                                                            (vm-main node | hadoop user)
+
+   -----------------------------------------------------
+    если что-то зафакапилось, для отката эта команда
+    # /usr/local/hadoop/sbin/stop-all.sh 
+   -----------------------------------------------------								                                                                (vm-main node | hadoop user)
+    дополнительные проверки:
+   -----------------------------------------------------
+    если ошибка с подключением - перепроверить public/private ip, наличие ssh ключей на каждой ноде, файл authorized_keys, config, 
+    права 700 для .ssh папки и 600 для её содержимого, ls -l показывает владельца /.ssh hadoop hadoop 
+    sudo service ssh start # перезапустить сервис ssh
+    проверить на каждой ноде SSH подключение к остальным нодам
+    
+    >> hostname и hostname -f должны вывести одинаковое имя хоста (текущего)
+    если не совпадает, изменить явно:
+    	>> sudo hostnamectl set-hostname (vm-main или другой)
+    	
+    тест создания NameNode и DataNode:
+    >> hadoop namenode # на мастер ноде, должно запуститься без ошибок
+    >> hadoop datanode # на каждой ноде, должно запуститься без ошибок
+    возможные проблемы:
+    не забыть форматирование -format перед запуском; не запускать с  lock файлами типа /hadoop/hdfs/datanode/in_use.lock
+
+
+
+Ждем еще немного (около 10 секунд) для окончательной загрузки java-приложения. После открываем в браузере адрес http://<IP-адрес мастер-сервера>:9870.
+    
