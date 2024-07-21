@@ -18,7 +18,7 @@ _______---_----------------------------_---_______
 >> sudo ssh-keygen -t rsa -f ~/.ssh/main/vm-sber-key											(vm-main node)
     ...
 				
-временно установить 777 права для упрощения
+временно установить 777 права
 >> sudo chmod 777 ~/.ssh/main/vm-main-key && \
 sudo chmod 777 ~/.ssh/main/vm-yandex-key && \
 sudo chmod 777 ~/.ssh/main/vm-sber-key
