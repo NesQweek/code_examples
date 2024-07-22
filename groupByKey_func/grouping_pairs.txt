@@ -1,0 +1,39 @@
+inversed_pairs
+>>
+[(2, 16),
+ (2, 25),
+ (2, 36),
+ (2, 49),
+ (2, 64),
+ (2, 81),
+ (4, 1024),
+ (4, 1089),
+ (4, 1156),
+ (4, 1225),
+ ...
+ (6, 998001)]
+
+grouped = inversed_pairs.groupByKey()
+grouped.take(25)
+>>
+[(2, <pyspark.resultiterable.ResultIterable at 0x7fabd977a910>),
+ (4, <pyspark.resultiterable.ResultIterable at 0x7fac08202990>),
+ (6, <pyspark.resultiterable.ResultIterable at 0x7fabd977aa10>),
+ (8, <pyspark.resultiterable.ResultIterable at 0x7fac08202a90>),
+ (10, <pyspark.resultiterable.ResultIterable at 0x7fabd977aad0>),
+ (12, <pyspark.resultiterable.ResultIterable at 0x7fabd977ab50>)]
+
+
+
+
+grouped = grouped.map(lambda x: (x[0], list(x[1])))
+grouped.take(2)
+>>
+[(2, [16, 25, 36, 49, 64, 81]),
+ (4,
+  [1024,
+   1089,
+   1156,
+   1225,
+   ...
+   9801])]

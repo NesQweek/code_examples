@@ -1,0 +1,21 @@
+nums = list(range(0, 1000000))
+>> [0, 1, 2, 3, ... 1000000]
+
+nums_rdd = sc.parallelize(nums)
+nums_rdd.collect()
+
+>> [0, 1, 2, 3, ... 1000000]
+
+
+pairs = squared_nums_rdd.map(lambda x: (x, len(str(x))))
+
+[0, 1, 2, 3, 4] 
+-> 
+[(0, 1),
+ (1, 1),
+ (4, 1),
+ (9, 1),
+ (16, 2),
+ (25, 2),
+ ...
+ (1000000, 7)]

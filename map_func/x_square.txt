@@ -1,0 +1,13 @@
+nums = list(range(0, 1000000))
+>> [0, 1, 2, 3, ... 1000000]
+
+nums_rdd = sc.parallelize(nums)
+nums_rdd.collect()
+
+>> [0, 1, 2, 3, ... 1000000]
+
+
+
+squared_nums_rdd = nums_rdd.map(lambda x: x**2)
+
+[0, 1, 2, 3, 4] -> [0, 1, 4, 9, 16]
